@@ -1,0 +1,32 @@
+server:
+  port: 9090
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  application:
+    name: Catalogue Services
+  datasource:
+    url: jdbc:h2:~/cataloguedb;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+  h2:
+    console.enabled: true
+  jpa:
+    show-sql: false
+    open-in-view: false
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format-sql: true
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:init.sql
+springdoc:
+  swagger-ui:
+    operationsSorter: method
+    path: /swagger-ui-custom.html
